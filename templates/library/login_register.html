@@ -1,0 +1,25 @@
+{%extends 'main.html'%} {%block content%}
+{%if type == 'login'%}
+<form method="POST" action="">
+	{%csrf_token%}
+	<div>
+		<input name="username" type="text" placeholder="Enter Username" />
+	</div>
+	<div>
+		<input name="password" type="password" placeholder="Enter Password" />
+	</div>
+	<div>
+		<input type="submit" value="Login" />
+	</div>
+</form>
+{%else%}
+<form method='POST' action="">
+	{%csrf_token%}
+	{{form.as_p}}
+	<div>
+		<input type="submit" value="Submit"/>
+	</div>
+</form>
+
+{%endif%}
+{%endblock%}

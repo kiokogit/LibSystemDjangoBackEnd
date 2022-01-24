@@ -1,0 +1,47 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<h2>Welcome {{request.user.email}}</h2>
+<h3>Available Books</h3>
+<div>
+{%if books%}
+{%for book in books%}
+<div onclick={handleClick(book)}>{{book.title}}</div>
+<img src="{{book.coverImage.url}}" alt="book cover"/>
+<div>
+    Comments:
+    <form action="" method="POST">
+    <div>Leave a comment </div>
+    <input type="text" placeholder="Type a comment" name="comment" />
+    <input type="submit" value="Submit"/>
+    </form>
+    {%for comment in comments%} 
+    {%if comment.book == book%}
+            <p>{{comment.by.username}} commented on this book  {{comment.date|timesince}}:</p>
+            <div>{{comment.body}}</div>
+        {%endif%}
+    {%endfor%}
+</div>
+{%endfor%}
+{%else%}
+<div>No books in the Library</div>
+{%endif%}
+</div>
+<div>
+    Book Details:
+    <div id="bookdetails">
+
+    </div>
+</div>
+<script>
+    const handleClick=(book)=>{
+        console.log('clicked')
+        document.getElementById('bookdetails').innerHTML=(
+            <div>
+                <div>{book.title}</div>
+                <div>{book.author}</div>
+            </div>
+        )
+    }
+</script>
+{%endblock%}
