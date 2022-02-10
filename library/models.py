@@ -25,7 +25,7 @@ class Books(models.Model):
     author=models.CharField(max_length=200, blank=True, null=True);
     noOfPages=models.CharField(max_length=200, blank=True, null=True);
     views=models.CharField(max_length=10, blank=True, null=True);       
-    yearOfPublication=models.DateField(max_length=20, blank=True, null=True);
+    yearOfPublication=models.IntegerField( blank=True, null=True);
     coverImage=models.TextField( blank=True, null=True);          #cover thumbnail
     preview=models.TextField(blank=True, null=True);            #a synopsis of the book, contained in the book info
     category=models.CharField(max_length=200, blank=True, null=True);          #eg fiction, schoolreader, non-fiction, adventure, novel, short story, class text, periodical, magazine, etc
