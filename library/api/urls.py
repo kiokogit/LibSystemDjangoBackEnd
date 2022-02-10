@@ -7,21 +7,21 @@ urlpatterns=[
     path('signup/', views.signUpUser, name='signUpUser'),
     
     #user
-    path('users/login/', views.loginUser, name='loginUser'),
-    path('users/logout/', views.logOutView, name='logOutUser'),
-    path('users/profile/edit/', views.editUserProfile, name='editProfile'),
+    path('users/login', views.loginUser, name='loginUser'),
+    path('users/logout', views.logOutView, name='logOutUser'),
+    path('users/profile/edit', views.editUserProfile, name='editProfile'),
     path('users/submitcomment', views.commentsView, name='submitComment'),
     path('users/comments', views.commentsView, name='getComments'),
     path('users/books/addtocart/<str:pk>', views.inCartView, name='addToCart'),
     path('users/books/removefromcart/<str:pk>', views.inCartView, name='removeFromCart'),
-    path('users/books/incart/', views.inCartView, name='getInCart'),
-    path('users/books/borrow/', views.borrowRequestView, name='borrowBook'),
+    path('users/books/incart', views.inCartView, name='getInCart'),
+    path('users/books/borrow', views.borrowRequestView, name='borrowBook'),
     path('users/books/cancelorder/<str:pk>', views.borrowRequestView, name='cancelRequest'),
     path('users/borrow/requests', views.borrowRequestView, name='getUserRequests'),
     path('users/borrow/borrowed', views.getBorrowedBooks, name='getUserBorrowed'),
     
     #admin
-    path('admin/login/', adminViews.loginAdmin, name='loginAdmin'),
+    path('admin/login', adminViews.loginAdmin, name='loginAdmin'),
     path('admin/users/90', views.getUserDetails, name='user'),
     path('admin/books/edit', views.editBookDetails, name='editBook'),
     path('admin/books/delete/<str:pk>', adminViews.deleteBook, name='deleteBook'),
