@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'library',
     
     'rest_framework',
+    'rest_framework.authtoken',
     
     'corsheaders',
 ]
@@ -60,6 +61,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'libServer.urls'
 
 AUTH_USER_MODEL='library.User'
+
 
 TEMPLATES = [
     {
@@ -83,13 +85,33 @@ WSGI_APPLICATION = 'libServer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+"""
 
+""" DATABASES = {
+    'default':{
+        'ENGINE':'djongo',
+        'NAME':'DjongoDb',
+        'CLIENT':{
+            'host':'mongodb://localhost:27017/DjongoDb'
+        }
+    }
+} """
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'library',
+        'USER': 'postgres',
+        'HOST':'localhost',
+        'PORT':'5432',
+        'PASSWORD':'Eissen-Jink@1024'
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

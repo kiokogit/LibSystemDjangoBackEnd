@@ -2,12 +2,13 @@
 
 {%block content%}
 <h2>Welcome {{request.user.email}}</h2>
+<a href="{%url 'logout'%}">logout</a>
 <h3>Available Books</h3>
 <div>
 {%if books%}
 {%for book in books%}
 <div onclick={handleClick(book)}>{{book.title}}</div>
-<img src="{{book.coverImage.url}}" alt="book cover"/>
+<img src="" alt="book cover"/>
 <div>
     Comments:
     <form action="" method="POST">
