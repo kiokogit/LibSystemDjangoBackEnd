@@ -16,7 +16,7 @@ def getBooks(request):
     books=Books.objects.all();
     serializer = BookSerializer(books, many=True);
     
-    return Response(serializer.data);
+    return Response(data=serializer.data);
 
 @api_view(['POST'])
 def signUpUser(request):
