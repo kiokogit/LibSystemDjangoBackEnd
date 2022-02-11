@@ -42,7 +42,8 @@ def loginAdmin(request):
         else:
             return Response(status=403) #forbidden access(not authorized)
 
-@api_view(['GET'])   
+@api_view(['GET'])  
+@authentication_classes([TokenAuthentication]) 
 def allPendingRequests(request):
     pending = RequestedBooks.objects.all();
     serialized = RequestsSerializer(pending, many=True);
@@ -50,6 +51,7 @@ def allPendingRequests(request):
 
 #ALL USERS
 @api_view(['GET'])
+@authentication_classes([TokenAuthentication])
 def allUsers(request):
     users = User.objects.all();
     serialized = UserSerializer(users, many=True);
@@ -57,6 +59,7 @@ def allUsers(request):
 
 #Unreturned books
 @api_view(['GET'])
+@authentication_classes([TokenAuthentication])
 def borrowedBooks(request):
     books = BorrowedBooks.objects.all();
     serialized = BorrowedSerializer(books, many=True);
